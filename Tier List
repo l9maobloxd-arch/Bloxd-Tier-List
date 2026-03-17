@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloxd PVP Tier Testing</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: white; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .tier-container { width: 95%; max-width: 900px; display: flex; flex-direction: column; gap: 4px; background: #111; padding: 10px; border-radius: 8px; }
+        .tier-row { display: flex; min-height: 80px; background: #1a1a1a; border: 1px solid #222; }
+        .label { width: 120px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: black; font-size: 1.4rem; text-shadow: 0px 1px 2px rgba(0,0,0,0.2); }
+        .items { flex-grow: 1; display: flex; flex-wrap: wrap; padding: 10px; gap: 8px; align-content: flex-start; }
+        
+        /* HT1-LT5 Colors */
+        .ht1 { background: #ff4b4b; } .ht2 { background: #ff854b; }
+        .ht3 { background: #ffc84b; } .ht4 { background: #d7ff4b; }
+        .ht5 { background: #85ff4b; } .lt1 { background: #4bff85; }
+        .lt2 { background: #4bffc8; } .lt3 { background: #4bd7ff; }
+        .lt4 { background: #4b85ff; } .lt5 { background: #854bff; }
+
+        .player { background: #2a2a2a; padding: 10px 18px; border-radius: 5px; cursor: grab; border: 1px solid #444; font-weight: 600; font-size: 0.9rem; transition: transform 0.2s; }
+        .player:active { cursor: grabbing; transform: scale(1.1); }
+        #bench { margin-top: 30px; width: 100%; max-width: 900px; border: 2px dashed #333; border-radius: 8px; padding: 20px; min-height: 100px; }
+    </style>
+</head>
+<body>
+
+    <h1>Bloxd PVP Tier Testing</h1>
+    <p style="color: #666;">HT1 (Strongest) to LT5 (Starter)</p>
+
+    <div class="tier-container">
+        <div class="tier-row"><div class="label ht1">HT1</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label ht2">HT2</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label ht3">HT3</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label ht4">HT4</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label ht5">HT5</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label lt3">LT1-LT3</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+        <div class="tier-row"><div class="label lt5">LT4-LT5</div><div class="items" ondrop="drop(event)" ondragover="allowDrop(event)"></div></div>
+    </div>
+
+    <div id="bench">
+        <h3>Players to Test:</h3>
+        <div class="items" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="player" draggable="true" ondragstart="drag(event)" id="p1">Player 1</div>
+            <div class="player" draggable="true" ondragstart="drag(event)" id="p2">Player 2</div>
+            <div class="player" draggable="true" ondragstart="drag(event)" id="p3">Player 3</div>
+        </div>
+    </div>
+
+    <script>
+        function allowDrop(ev) { ev.preventDefault(); }
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var target = ev.target;
+            if (target.classList.contains('items')) { target.appendChild(document.getElementById(data)); }
+        }
+    </script>
+</body>
+</html>
