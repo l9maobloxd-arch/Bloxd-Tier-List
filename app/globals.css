@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #111111;
+  --card-foreground: #fafafa;
+  --primary: #ff4b4b;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a1a1aa;
+  --accent: #ff854b;
+  --accent-foreground: #000000;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #ff4b4b;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Tier Colors */
+.tier-ht1 { background: #ff4b4b; color: black; }
+.tier-ht2 { background: #ff854b; color: black; }
+.tier-ht3 { background: #ffc84b; color: black; }
+.tier-ht4 { background: #d7ff4b; color: black; }
+.tier-ht5 { background: #85ff4b; color: black; }
+.tier-lt1 { background: #4bff85; color: black; }
+.tier-lt2 { background: #4bffc8; color: black; }
+.tier-lt3 { background: #4bd7ff; color: black; }
+.tier-lt4 { background: #4b85ff; color: white; }
+.tier-lt5 { background: #854bff; color: white; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
